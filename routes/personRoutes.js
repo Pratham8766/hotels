@@ -39,4 +39,14 @@ router.put('/updateperson/:id', async (req, res)=>{
 })
 
 
+router.delete('/deleteperson/:id', async (req, res)=>{
+    try {
+        var id = req.params.id;
+        var response = await person.findByIdAndDelete(id)
+        res.status(200).json({data: "Data Deleted"})
+    } catch (error) {
+        res.status(500).json({error: "Internal Server Error"})
+    }
+})
+
 module.exports = router
