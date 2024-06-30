@@ -4,7 +4,10 @@ dotenv.config()
 
 mongoURL = process.env.mongoURL
 
-mongoose.connect(mongoURL)
+mongoose.connect(mongoURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 var db = mongoose.connection
 
